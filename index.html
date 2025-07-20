@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Affan Javaid | Senior DevOps Engineer Portfolio</title>
+    <meta name="description" content="Senior DevOps Engineer specializing in AWS, Kubernetes, Terraform, and cost-optimized cloud solutions">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2962ff;
+            --primary-dark: #0039cb;
+            --dark: #0a192f;
+            --light: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9)), 
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            color: white;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, var(--light), transparent);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero .lead {
+            font-size: 1.5rem;
+            max-width: 800px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .animated-text {
+            display: inline-block;
+            position: relative;
+        }
+
+        .animated-text::after {
+            content: '|';
+            position: absolute;
+            right: -10px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section h2 {
+            margin-bottom: 50px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: var(--primary);
+            bottom: -15px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .icon-box {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .icon-box:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(41, 98, 255, 0.1);
+            border-color: var(--primary);
+        }
+
+        .icon-box i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .icon-box:hover i {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .project-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+            transition: all 0.4s ease;
+            background: white;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(41, 98, 255, 0.15);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-card-body {
+            padding: 25px;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            background: #e9ecef;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .tech-badge:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(41, 98, 255, 0.3);
+        }
+
+        .btn-download {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 12px 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-download:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(41, 98, 255, 0.3);
+        }
+
+        .bg-dark-blue {
+            background: var(--dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-dark-blue::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(41,98,255,0.1) 0%, rgba(10,25,47,1) 70%);
+            animation: rotate 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .contact-card {
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .counter-box {
+            background: rgba(41,98,255,0.1);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(41,98,255,0.2);
+        }
+
+        .counter-box:hover {
+            background: rgba(41,98,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .counter-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        .progress-95 { width: 95% }
+        .progress-90 { width: 90%; }
+        .progress-85 { width: 85%; }
+        .progress-80 { width: 80%; }
+        .progress-75 { width: 75%; }
+
+        /* Animation classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero .lead {
+                font-size: 1.2rem;
+            }
+            .section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content container">
+            <h1 class="mb-3">Muhammad Affan Javaid</h1>
+            <p class="lead mb-4">
+                <span class="animated-text">Senior DevOps Engineer</span> | 
+                <span class="typed-text" data-typed-items="AWS Architect, Kubernetes Specialist, Cloud Automation Expert, CI/CD Engineer"></span>
+            </p>
+            <div class="mt-4">
+                <a href="#projects" class="btn btn-primary btn-lg me-3">View My Work</a>
+                <a href="#contact" class="btn btn-outline-light btn-lg me-3">Contact Me</a>
+                <a href="#" id="downloadResume" class="btn btn-download btn-lg">
+                    <i class="fas fa-download me-2"></i>Download Resume
+                </a>
+            </div>
+            <div class="mt-5 floating">
+                <i class="fas fa-chevron-down fa-2x" style="color: white;"></i>
+            </div>
+        </div>
+    </header>
+
+<!-- About Section -->
+<section class="section" id="about">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Text Content -->
+            <div class="col-lg-6 animate-on-scroll pe-lg-5">  <!-- Added right padding -->
+                <h2>About Me</h2>
+                <p class="lead">I transform complex infrastructure challenges into elegant DevOps solutions.</p>
+                <p>With 4+ years of experience, I specialize in designing and implementing <strong>highly available, secure, and cost-efficient</strong> cloud architectures on AWS. My expertise spans Kubernetes orchestration, infrastructure automation, CI/CD pipelines, and observability stacks.</p>
+                <p>I've successfully migrated <strong>30+ microservices</strong> to Kubernetes, optimized cloud costs by <strong>40%</strong>, and implemented <strong>zero-downtime deployment</strong> strategies for critical applications.</p>
+                <div class="mt-4">
+                    <a href="#expertise" class="btn btn-outline-primary me-2">My Expertise</a>
+                    <a href="#projects" class="btn btn-primary">Case Studies</a>
+                </div>
+            </div>
+            
+            <!-- Image Column -->
+            <div class="col-lg-6 animate-on-scroll ps-lg-5 mt-5 mt-lg-0">  <!-- Added left padding and top margin -->
+                <div class="position-relative" style="max-width: 400px; margin: 0 auto;">
+                    <img src="images/ME.jpg" 
+                         alt="Muhammad Affan Javaid - DevOps Engineer" 
+                         class="img-fluid rounded shadow-lg" 
+                         style="border: 1px solid #1a4fd8; width: 100%;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Add these styles to your existing CSS */
+    #about {
+        padding: 100px 0;
+    }
+    
+    #about img {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    #about img:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(26, 79, 216, 0.2) !important;
+    }
+    
+    @media (min-width: 992px) {
+        .pe-lg-5 {
+            padding-right: 3rem !important;
+        }
+        .ps-lg-5 {
+            padding-left: 3rem !important;
+        }
+    }
+</style>
+
+    <!-- Stats Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <div class="counter-box">
+                        <i class="fas fa-cloud fa-2x mb-3" style="color: var(--primary);"></i>
+                        <div class="counter-number" data-count="15">0</div>
+                        <p>Cloud Projects</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="counter-box">
+                        <i class="fas fa-server fa-2x mb-3" style="color: var(--primary);"></i>
+                        <div class="counter-number" data-count="50">0</div>
+                        <p>Microservices Managed</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="counter-box">
+                        <i class="fas fa-percentage fa-2x mb-3" style="color: var(--primary);"></i>
+                        <div class="counter-number" data-count="40">0</div>
+                        <p>Cost Reduction</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="counter-box">
+                        <i class="fas fa-clock fa-2x mb-3" style="color: var(--primary);"></i>
+                        <div class="counter-number" data-count="100">0</div>
+                        <p>CI/CD Pipelines</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="section bg-light" id="expertise">
+        <div class="container">
+            <h2 class="text-center">Core Expertise</h2>
+            <div class="row g-4">
+                <!-- Cloud & Kubernetes -->
+                <div class="col-md-4 animate-on-scroll">
+                    <div class="icon-box">
+                        <i class="fab fa-aws"></i>
+                        <h4>Cloud & Kubernetes</h4>
+                        <ul class="text-start ps-3">
+                            <li>AWS EKS, ECS, EC2, Lambda, S3, RDS</li>
+                            <li>Kubernetes Operators, Helm, Kustomize</li>
+                            <li>KEDA for event-driven autoscaling</li>
+                            <li>Cluster Autoscaler & Karpenter</li>
+                            <li>Service Mesh (consul)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- CI/CD & Automation -->
+                <div class="col-md-4 animate-on-scroll" style="transition-delay: 0.1s;">
+                    <div class="icon-box">
+                        <i class="fas fa-robot"></i>
+                        <h4>CI/CD & Automation</h4>
+                        <ul class="text-start ps-3">
+                            <li>Jenkins Shared Libraries (Groovy)</li>
+                            <li>Azure DevOPS GitHub Actions & GitLab CI</li>
+                            <li>AWS CodeDeploy & ArgoCD (GitOps)</li>
+                            <li>Multi-stage Docker builds</li>
+                            <li>Artifact Management (Nexus)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Infrastructure as Code -->
+                <div class="col-md-4 animate-on-scroll" style="transition-delay: 0.2s;">
+                    <div class="icon-box">
+                        <i class="fas fa-code"></i>
+                        <h4>Infrastructure as Code</h4>
+                        <ul class="text-start ps-3">
+                            <li>Terraform (Modules, Workspaces)</li>
+                            <li>AWS CLoudFormation</li>
+                            <li>eksctl</li>
+                            <li>Ansible for configuration</li>
+                            <li>Policy-as-Code (OPA, Sentinel)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Monitoring & Security -->
+                <div class="col-md-4 animate-on-scroll" style="transition-delay: 0.3s;">
+                    <div class="icon-box">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Security & Observability</h4>
+                        <ul class="text-start ps-3">
+                            <li>Prometheus/Grafana (Custom Dashboards)</li>
+                            <li>AWS CloudWatch & FluentBit</li>
+                            <li>AWS WAF $ GuardDuty & Security Hub</li>
+                            <li>Pod Security Policies</li>
+                            <li>IRSA & Workload Identity</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Database & Storage -->
+                <div class="col-md-4 animate-on-scroll" style="transition-delay: 0.4s;">
+                    <div class="icon-box">
+                        <i class="fas fa-database"></i>
+                        <h4>Database & Storage</h4>
+                        <ul class="text-start ps-3">
+                            <li>MongoDB Atlas (VPC Peering)</li>
+                            <li>AWS RDS</li>
+                            <li>RabbitMQ & Redis Cluster</li>
+                            <li>EFS & EBS Optimization</li>
+                            <li>Data Migration Strategies</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Cost Optimization -->
+                <div class="col-md-4 animate-on-scroll" style="transition-delay: 0.5s;">
+                    <div class="icon-box">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Cost Optimization</h4>
+                        <ul class="text-start ps-3">
+                            <li>Spot Instance Strategies</li>
+                            <li>Savings Plans & Reserved Instances</li>
+                            <li>Graviton Migration</li>
+                            <li>VPC Endpoints</li>
+                            <li>FinOps Practices</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center">Technical Skills</h2>
+            <div class="row">
+                <div class="col-md-6 animate-on-scroll">
+                    <h4><i class="fas fa-cloud me-2"></i> Cloud & DevOps</h4>
+                    <div class="skill-item">
+                        <div class="d-flex justify-content-between">
+                            <span>AWS</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress progress-95"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="d-flex justify-content-between">
+                            <span>Kubernetes</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress progress-90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="d-flex justify-content-between">
+                            <span>Terraform</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress progress-85"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 animate-on-scroll" style="transition-delay: 0.2s;">
+                    <h4><i class="fas fa-code me-2"></i> CI/CD & Automation</h4>
+                    <div class="skill-item">
+                        <div class="d-flex justify-content-between">
+                            <span>Jenkins</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress progress-90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="d-flex justify-content-between">
+                            <span>GitHub Actions</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress progress-85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="d-flex justify-content-between">
+                            <span>ArgoCD</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress progress-80"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section bg-light" id="projects">
+        <div class="container">
+            <h2 class="text-center">Featured Projects</h2>
+            
+            <!-- Project 1 -->
+            <div class="project-card animate-on-scroll">
+                <img src="images/AWSEKS.jpg" alt="Kubernetes Cluster">
+                <div class="project-card-body">
+                    <h3>AWS EKS Migration for 30+ Microservices</h3>
+                    <p>Designed and implemented a highly available Kubernetes cluster supporting 30+ microservices with specialized node groups for GPU, memory-optimized, and spot workloads.</p>
+                    <div class="mb-3">
+                        <span class="tech-badge">AWS EKS</span>
+                        <span class="tech-badge">Terraform</span>
+                        <span class="tech-badge">KEDA</span>
+                        <span class="tech-badge">ALB Ingress</span>
+                        <span class="tech-badge">IRSA</span>
+                    </div>
+                    <h5>Key Achievements:</h5>
+                    <ul>
+                        <li>Reduced infrastructure costs by <strong>40%</strong> through spot instances and savings plans</li>
+                        <li>Implemented <strong>zero-downtime</strong> migration strategy</li>
+                        <li>Designed <strong>10+ node groups</strong> with taints/tolerations for workload isolation</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Project 4: Karpenter on EKS -->
+            <!-- Project 4: Karpenter on EKS (Staging) -->
+            <div class="project-card animate-on-scroll" style="transition-delay: 0.6s;">
+                <img src="images/karpenter.png" alt="Karpenter Spot Instance Scaling on EKS">
+                <div class="project-card-body">
+                    <h3>Staging Environment Optimization with Karpenter</h3>
+                    <p>Designed a cost-efficient staging environment using Karpenter on EKS with exclusive spot instances and strict scaling limits to balance performance and cost.</p>
+                    <div class="mb-3">
+                        <span class="tech-badge">Karpenter</span>
+                        <span class="tech-badge">EKS</span>
+                        <span class="tech-badge">Spot Instances</span>
+                        <span class="tech-badge">Terraform</span>
+                        <span class="tech-badge">Cost Control</span>
+                    </div>
+                    <h5>Key Implementation:</h5>
+                    <ul>
+                        <li><strong>100% spot instances</strong> for staging with capacity-optimized strategy</li>
+                        <li>Set <strong>50GB memory limit</strong> for cluster-wide scaling</li>
+                        <li>Configured <strong>instance type flexibility</strong> (10+ instance types)</li>
+                        <li>Implemented <strong>auto-scaling based on memory requests</strong></li>
+                        <li>Saved <strong>70% costs</strong> compared to on-demand instances</li>
+                    </ul>
+                    
+                    <h5 class="mt-3">Terraform Snippet:</h5>
+                    <pre class="bg-light p-3 rounded"><code>resource "karpenter_provisioner" "staging" {
+            name = "staging-spot"
+            requirements {
+                key      = "karpenter.sh/capacity-type"
+                operator = "In"
+                values   = ["spot"]
+            }
+            limits {
+                resources {
+                memory = "50Gi"
+                }
+            }
+            provider_ref {
+                name = "aws"
+            }
+            }</code></pre>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card animate-on-scroll" style="transition-delay: 0.3s;">
+                <img src="images/cost.png" alt="AWS Cost Optimization">
+                <div class="project-card-body">
+                    <h3>AWS Cloud Cost Optimization Initiative</h3>
+                    <p>Implemented comprehensive cost optimization strategies across AWS infrastructure, reducing monthly cloud spend by 45% while maintaining performance and reliability.</p>
+                    <div class="mb-3">
+                        <span class="tech-badge">AWS EC2</span>
+                        <span class="tech-badge">Terraform</span>
+                        <span class="tech-badge">Cost Explorer</span>
+                        <span class="tech-badge">Graviton</span>
+                        <span class="tech-badge">Spot Instances</span>
+                    </div>
+                    <h5>Key Achievements:</h5>
+                    <ul>
+                        <li>Reduced compute costs by <strong>65%</strong> through strategic mix of Spot Instances, Reserved Instances, and Savings Plans</li>
+                        <li>Migrated <strong>80% of workloads</strong> to Graviton instances achieving 30% better price-performance</li>
+                        <li>Implemented <strong>Terraform automation</strong> for on-demand instance provisioning/destruction, saving $12k/month</li>
+                        <li>Optimized storage costs by <strong>40%</strong> through gp3 volumes and lifecycle policies</li>
+                        <li>Reduced data transfer costs by <strong>50%</strong> via VPC endpoints and private connectivity</li>
+                        <li>Deployed <strong>t3 burstable instances</strong> for variable workloads, cutting costs by 35%</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card animate-on-scroll" style="transition-delay: 0.2s;">
+                <img src="images/jenkins.png" alt="CI/CD Pipeline">
+                <div class="project-card-body">
+                    <h3>CI/CD Optimization with Jenkins Shared Libraries</h3>
+                    <p>Revolutionized CI/CD pipelines by implementing Jenkins Shared Libraries and parallel execution strategies, reducing build times from 25+ minutes to under 10 minutes.</p>
+                    <div class="mb-3">
+                        <span class="tech-badge">Jenkins</span>
+                        <span class="tech-badge">Groovy</span>
+                        <span class="tech-badge">Docker</span>
+                        <span class="tech-badge">Artifactory</span>
+                        <span class="tech-badge">SonarQube</span>
+                    </div>
+                    <h5>Key Achievements:</h5>
+                    <ul>
+                        <li>Reduced pipeline maintenance overhead by <strong>70%</strong> through shared libraries</li>
+                        <li>Implemented <strong>multi-stage Docker builds</strong> reducing image size by 60%</li>
+                        <li>Configured <strong>local artifact caching</strong> to eliminate external download latency</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card animate-on-scroll" style="transition-delay: 0.4s;">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80" alt="Monitoring Dashboard">
+                <div class="project-card-body">
+                    <h3>Unified Observability with Prometheus & Grafana</h3>
+                    <p>Designed and deployed a comprehensive monitoring solution covering infrastructure metrics, application performance, and business KPIs with custom Grafana dashboards.</p>
+                    <div class="mb-3">
+                        <span class="tech-badge">Prometheus</span>
+                        <span class="tech-badge">Grafana</span>
+                        <span class="tech-badge">FluentBit</span>
+                        <span class="tech-badge">AlertManager</span>
+                        <span class="tech-badge">AWS CloudWatch</span>
+                    </div>
+                    <h5>Key Achievements:</h5>
+                    <ul>
+                        <li>Reduced <strong>MTTR by 80%</strong> through proactive alerting</li>
+                        <li>Implemented <strong>log retention policies</strong> balancing cost and compliance</li>
+                        <li>Created <strong>30+ custom dashboards</strong> for different stakeholder needs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Project 3: Docker Swarm -->
+            <div class="project-card animate-on-scroll" style="transition-delay: 0.4s;">
+                <img src="images/docker.png" alt="Docker Swarm Cluster">
+                <div class="project-card-body">
+                    <h3>High-Availability Deployment with Docker Swarm</h3>
+                    <p>Architected and deployed a fault-tolerant Docker Swarm cluster across 3 availability zones, serving 50K+ daily users with zero downtime during deployments.</p>
+                    <div class="mb-3">
+                        <span class="tech-badge">Docker Swarm</span>
+                        <span class="tech-badge">ASG</span>
+                        <span class="tech-badge">Portainer</span>
+                        <span class="tech-badge">Docker compose</span>
+                        <span class="tech-badge">Containerization</span>
+                    </div>
+                    <h5>Key Achievements:</h5>
+                    <ul>
+                        <li>Achieved <strong>99.95% uptime</strong> with rolling updates and health checks</li>
+                        <li>Implemented <strong>auto-scaling</strong> based on CPU/memory metrics</li>
+                        <li>Configured <strong>secrets management</strong> for secure credential handling</li>
+                        <li>Reduced deployment times by <strong>70%</strong> using stack files</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    
+
+    <!-- Contact Section -->
+    <section class="section bg-dark-blue" id="contact">
+        <div class="container">
+            <h2 class="text-center text-white">Get In Touch</h2>
+            <p class="text-center text-white mb-5">I'm currently open to new opportunities and interesting projects.</p>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card shadow contact-card">
+                        <div class="card-body p-5">
+                            <h3 class="text-center mb-4">Contact Me</h3>
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                                </div>
+                            </form>
+                            <hr class="my-4">
+                            <div class="text-center">
+                                <a href="mailto:affanrraog11@gmail.com" class="btn btn-outline-light me-3">
+                                    <i class="fas fa-envelope me-2"></i> Email
+                                </a>
+                                <a href="https://www.linkedin.com/in/affan-javaid" class="btn btn-outline-light me-3">
+                                    <i class="fab fa-linkedin-in me-2"></i> LinkedIn
+                                </a>
+                                <a href="https://github.com/affanjavaid" class="btn btn-outline-light">
+                                    <i class="fab fa-github me-2"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>© 2025 Muhammad Affan Javaid. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-github"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        // Typed.js Animation
+        document.addEventListener('DOMContentLoaded', function(){
+            var typed = new Typed('.typed-text', {
+                strings: ['AWS Architect', 'Kubernetes Specialist', 'Cloud Automation Expert', 'CI/CD Engineer'],
+                typeSpeed: 50,
+                backSpeed: 30,
+                loop: true
+            });
+
+            // Counter Animation
+            const counters = document.querySelectorAll('.counter-number');
+            const speed = 200;
+
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+
+                if(count < target) {
+                    const updateCount = () => {
+                        counter.innerText = Math.ceil(count + increment);
+                        if(count < target) {
+                            setTimeout(updateCount, 1);
+                        } else {
+                            counter.innerText = target + '+';
+                        }
+                    }
+                    updateCount();
+                } else {
+                    counter.innerText = target + '+';
+                }
+            });
+
+            // Scroll Animation
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            animateElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Download Resume Button
+            document.getElementById('downloadResume').addEventListener('click', function(e) {
+                e.preventDefault();
+                // Replace with your actual resume PDF
+                const resumeUrl = 'https://drive.google.com/file/d/13FnaCtNgJYAKUT1vhMifhgjD_PGa6gUw/view?usp=sharing';
+                
+                // Create temporary link
+                const link = document.createElement('a');
+                link.href = resumeUrl;
+                link.download = 'Muhammad_Affan_Javaid_DevOps_Resume.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Confirmation
+                alert('Your resume download has started!');
+            });
+
+            // Contact Form Submission
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! I will get back to you soon.');
+                this.reset();
+            });
+        });
+
+        // Animate skill bars on scroll
+        window.addEventListener('scroll', function() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const rect = bar.getBoundingClientRect();
+                if(rect.top <= window.innerHeight && rect.bottom >= 0) {
+                    bar.classList.add('animate');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
